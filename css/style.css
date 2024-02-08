@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  /*Primary color*/
+  --Lime-Green: hsl(163, 72%, 41%);
+  --Bright-Red: hsl(356, 69%, 56%);
+
+  --Facebook: hsl(208, 92%, 53%);
+  --Twitter: hsl(203, 89%, 53%);
+  --Instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --YouTube: hsl(348, 97%, 39%);
+  --hover: hsl(233, 20%, 39%);
+
+  /*Dark Theme*/
+
+  --ToggleGradient: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+
+  /* Light Theme*/
+
+  --Toggle: hsl(230, 22%, 74%);
+
+  /*Dark Theme*/
+
+  --Very-Dark-BlueBG: hsl(230, 17%, 14%);
+  --Very-Dark-BlueBG-Pattern: hsl(232, 19%, 15%);
+  --Dark-Desaturated-BlueCardBG: hsl(228, 28%, 20%);
+  --Desaturated-BlueText: hsl(228, 34%, 66%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--Very-Dark-BlueBG);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: all 0.5s ease;
+}
+body.light {
+  /* Light Theme*/
+  --ToggleGradient: hsl(230, 22%, 74%);
+
+  --Very-Dark-BlueBG: hsl(225, 100%, 98%);
+  --Very-Dark-BlueBG-Pattern: hsl(220, 47%, 96%);
+  --Dark-Desaturated-BlueCardBG: hsla(180, 2%, 91%, 0.585);
+  --Desaturated-BlueText: hsl(228, 12%, 44%);
+  --White: hsl(0, 0%, 0%);
+  --hover: hsl(230, 8%, 85%);
+  transition: all 0.5s ease;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 250px;
+  background-color: var(--Very-Dark-BlueBG-Pattern);
+  z-index: -1;
+}
+body .main-container {
+  width: 850px;
+}
+.main-container .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo {
+  display: flex;
+  flex-direction: column;
+}
+.social {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--White);
+}
+.header .logo .total {
+  font-size: 12px;
+  color: var(--Desaturated-BlueText);
+}
+
+.header .togglebtn {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Desaturated-BlueText);
+  gap: 10px;
+}
+.togglebtn .toggle {
+  width: 47px;
+  height: 23px;
+  border-radius: 30px;
+  background: var(--ToggleGradient);
+  position: relative;
+  cursor: pointer;
+}
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: var(--Very-Dark-BlueBG);
+  border-radius: 50px;
+  top: 10%;
+  left: 3px;
+  transition: all 0.5s ease;
+}
+
+body.light .toggle::before {
+  left: 25px;
+}
+
+.main-container .content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.content .instagram,
+.facebook,
+.twitter,
+.youtube {
+  background-color: var(--Dark-Desaturated-BlueCardBG);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  position: relative;
+  padding: 15px 0px;
+  overflow: hidden;
+}
+.content .instagram:hover,
+.facebook:hover,
+.twitter:hover,
+.youtube:hover {
+  background-color: var(--hover);
+  cursor: pointer;
+}
+.facebook::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--Facebook);
+  top: 0;
+}
+.twitter::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--Twitter);
+  top: 0;
+}
+.instagram::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--Instagram);
+  top: 0;
+}
+.youtube::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--YouTube);
+  top: 0;
+}
+
+.box .first {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--Desaturated-BlueText);
+  text-align: center;
+  font-size: 14px;
+  justify-content: center;
+}
+
+.box .bigtext {
+  font-size: 45px;
+  color: var(--White);
+  font-weight: bold;
+}
+
+.box .smaller {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: var(--Desaturated-BlueText);
+}
+.box .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Lime-Green);
+  font-size: 12px;
+  font-weight: 600;
+  gap: 5px;
+}
+
+.overview {
+  margin-top: 20px;
+}
+
+.overview .otherBox {
+  width: 100%;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.otherBox .caixas {
+  background-color: var(--Dark-Desaturated-BlueCardBG);
+  font-size: 13px;
+  padding: 15px;
+  border-radius: 6px;
+}
+.caixas:hover {
+  background-color: var(--hover);
+  cursor: pointer;
+}
+
+.caixas .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--Desaturated-BlueText);
+}
+.caixas .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.bottom .oito {
+  font-size: 22px;
+  color: var(--White);
+  font-weight: 600;
+}
+.bottom .imagem {
+  display: flex;
+  align-items: center;
+  color: var(--Lime-Green);
+  gap: 5px;
+}
+
+@media (max-width: 420px) {
+  body {
+    height: 100%;
+  }
+  .smaller {
+    margin-top: 10px;
+  }
+
+  .main-container .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    width: 100%;
+  }
+  .header .logo {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    padding: 20px;
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+  }
+  .header .togglebtn {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    padding-top: 10px;
+    padding-left: 0;
+    margin-left: 0;
+    align-items: center;
+    color: var(--Desaturated-BlueText);
+    gap: 10px;
+  }
+  .togglebtn .toggle {
+    margin-left: 130px;
+    width: 47px;
+    height: 23px;
+  }
+  .main-container .content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+    padding: 20px;
+  }
+  .overview .otherBox {
+    width: 100%;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+  }
+  .overview .social {
+    padding: 0px 20px;
+  }
+}
